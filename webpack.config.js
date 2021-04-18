@@ -2,7 +2,6 @@ const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 
 module.exports = {
@@ -53,15 +52,20 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
+          // 'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [autoprefixer()],
-            },
-          },
+          // {
+          /* loader: */ 'postcss-loader',
+          // options: {
+          //   postcssOptions: {
+          //     plugins: ['autoprefixer', 'tailwindcss', 'postcss-import'],
+          //   },
+          //   // // options: {
+          //   // //   plugins: () => [autoprefixer(), tailwindcss()],
+          //   // // },
+          // },
+          // },
           'sass-loader',
         ],
       },
